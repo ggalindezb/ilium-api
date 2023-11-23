@@ -7,6 +7,14 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :role, inclusion: { in: ROLES }
 
+  def as_json(_options = {})
+    {
+      id:,
+      email:,
+      role:
+    }
+  end
+
   def jwt
     raise ArgumentError if AUTH_KEY.nil?
 
