@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'book/reserve/:id', controller: :book, action: :reserve
 
   get 'reserve/:code', controller: :reserve, action: :show
-  put 'reserve', controller: :reserve, action: :update
+  put 'reserve/:code', controller: :reserve, action: :update
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 end
