@@ -1,0 +1,25 @@
+AllCops:
+  TargetRubyVersion: 3.2
+  UseCache: true
+  NewCops: enable
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+
+Layout/LineLength:
+  Max: 150
+  AllowedPatterns: ['\A#']
+
+Metrics/MethodLength:
+  Max: 15
+  CountAsOne: ["array", "hash", "heredoc"]
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
