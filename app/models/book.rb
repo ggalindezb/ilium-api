@@ -2,10 +2,10 @@ class Book < ApplicationRecord
   validates :title, :author, presence: true
 
   def release!
-    update!(reserve: false)
+    update!(reserved: false)
   end
 
   def reserve!
-    update!(reserve: true)
+    update!(reserved: true)
   end
 end
