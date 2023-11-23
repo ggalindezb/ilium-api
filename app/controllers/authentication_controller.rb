@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
     user = User.find_by(email:)&.authenticate(password)
 
     if user
-      render json: { jwt: user.jwt }, status: :created
+      render json: { jwt: user.jwt, role: user.role }, status: :created
     else
       head :unauthorized
     end

@@ -10,4 +10,12 @@ class Reservation < ApplicationRecord
       new(attributes.merge(code:))
     end
   end
+
+  def as_json(_options = {})
+    {
+      id:,
+      code:,
+      pick_up_time:
+    }
+  end
 end
