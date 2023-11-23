@@ -24,11 +24,11 @@ class BookController < ApplicationController
     title = search_params[:title]
     author = search_params[:author]
 
-    if title.present? || author.present?
-      Book.where(title:).or(Book.where(author:))
-    else
-      Book.all
-    end
+    scope = Book.all
+    scope = scope.where(title:) if title.present?
+    scope = scope.where(author:) if author.present?
+
+    scope
   end
 
   def search_params
