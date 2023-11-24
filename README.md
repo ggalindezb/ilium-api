@@ -1,24 +1,37 @@
-# README
+# Ilium API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+Make sure you have a running postgres server with a role under your username.
 
-* Ruby version
+Setup your database with:
 
-* System dependencies
+```shell
+bin/rails db:create db:migrate db:seed
+```
 
-* Configuration
+You will need a token for JWT HMAC marshalling.
 
-* Database creation
+```shell
+export AUTH_KEY=$(bin/rails secret)
+```
 
-* Database initialization
+Run your server as usual
 
-* How to run the test suite
+```shell
+bin/rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+You can run your specs and lint your code with:
 
-* Deployment instructions
+```shell
+bin/bundle exec rspec
+gem install rubocop
+rubocop
+```
 
-* ...
+(Rubocop wasn't included in the bundle to minimize time spent on config)
+
+## Documentation on the codebase
+
+TBD

@@ -25,8 +25,8 @@ class BookController < ApplicationController
     author = search_params[:author]
 
     scope = Book.all
-    scope = scope.where(title:) if title.present?
-    scope = scope.where(author:) if author.present?
+    scope = scope.with_title_substring(title) if title.present?
+    scope = scope.with_author_substring(author) if author.present?
 
     scope
   end
