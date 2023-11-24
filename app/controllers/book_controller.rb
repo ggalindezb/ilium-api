@@ -9,7 +9,6 @@ class BookController < ApplicationController
     reserve = Reservation.with_code(user: current_user, book:, pick_up_time:)
 
     if reserve.save
-      book.reserve!
       render json: reserve, status: :created
     else
       render json: { errors: reserve.errors.full_messages }, status: :unprocessable_entity
